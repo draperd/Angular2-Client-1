@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Directive, QueryList, ViewChild, ElementRef, ContentChildren, AfterContentInit } from '@angular/core';
 import { NodeService } from "./node.service";
+import { Base } from "./base.component";
+
+
+
 
 @Component({
   selector: 'list',
@@ -7,10 +11,14 @@ import { NodeService } from "./node.service";
   styleUrls: [],
   providers: [NodeService]
 })
-export class List {
+export class List implements AfterContentInit {
 
    data:any;
    options:any;
+
+   @ViewChild('list') el: ElementRef;
+
+   @ContentChildren(Base) children: QueryList<Base>;
 
    constructor(private nodeService: NodeService) {
       this.data = {
@@ -28,14 +36,36 @@ export class List {
       };
    }
 
+   ngAfterContentInit() {
+      console.log("Moo", this.children);
+      this.children.forEach((child) => {
+        console.log("Woof", child);
+        child.relativePath = this.options.relativePath;
+        child.list = this.data.list;
+    });
+   }
+
    ngOnInit() { 
       this.getData(); 
+
+      this.el.nativeElement.addEventListener("NAVIGATE", (event) => {
+        console.log("Clicked", event);
+        if (event && event.detail)
+        {
+          this.navigate(event.detail);
+        }
+      });
    }
 
    getData() {
       this.nodeService.getItems(this.options)
-                      .subscribe(
-                       list => this.data = list);
+                      .subscribe(list => {
+                        this.data = list;
+                        this.children.forEach((child) => {
+                            child.relativePath = this.options.relativePath;
+                            child.list = this.data.list;
+                        });
+                      });
    }
 
    pageBack() {

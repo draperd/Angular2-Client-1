@@ -1,5 +1,3 @@
-<div>
-   <breadcrumb [relativePath]="options.relativePath" (onRelativePath)="setRelativePath($event)"></breadcrumb>
-   <toolbar [list]="data.list" (onBack)="pageBack($event)" (onForward)="pageForward($event)"></toolbar>
-   <listview [list]="data.list" (onNavigate)="navigate($event)"></listview>
+<div #list>
+   <ng-content></ng-content>
 </div>

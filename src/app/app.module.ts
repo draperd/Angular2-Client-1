@@ -14,6 +14,7 @@ import { List } from './list.component';
 import { ListView } from "./listview.component";
 import { Toolbar } from "./toolbar.component";
 import { Breadcrumb } from "./breadcrumb.component";
+import { Base } from "./base.component";
 
 @NgModule({
   declarations: [
