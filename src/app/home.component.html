@@ -1,10 +1,10 @@
 <h1>
   {{title}}
 </h1>
-<list (onNavigate)="navigate($event)">
-  <breadcrumb (onRelativePath)="setRelativePath($event)"></breadcrumb>
+<list #parentList (onNavigate)="navigate($event)">
+  <breadcrumb [relativePath]="parentList.options.relativePath" (onRelativePath)="parentList.setRelativePath($event)"></breadcrumb>
    <!--<breadcrumb [relativePath]="options.relativePath" (onRelativePath)="setRelativePath($event)"></breadcrumb>-->
    <!--<toolbar [list]="data.list" (onBack)="pageBack($event)" (onForward)="pageForward($event)"></toolbar> -->
    <!--<listview [list]="data.list" (onNavigate)="navigate($event)"></listview>-->
-   <listview></listview>
+   <listview [list]="parentList.data.list" (onNavigate)="parentList.navigate($event)"></listview>
 </list>

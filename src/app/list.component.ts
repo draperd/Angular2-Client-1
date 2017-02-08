@@ -48,23 +48,19 @@ export class List implements AfterContentInit {
    ngOnInit() { 
       this.getData(); 
 
-      this.el.nativeElement.addEventListener("NAVIGATE", (event) => {
-        console.log("Clicked", event);
-        if (event && event.detail)
-        {
-          this.navigate(event.detail);
-        }
-      });
+      // this.el.nativeElement.addEventListener("NAVIGATE", (event) => {
+      //   console.log("Clicked", event);
+      //   if (event && event.detail)
+      //   {
+      //     this.navigate(event.detail);
+      //   }
+      // });
    }
 
    getData() {
       this.nodeService.getItems(this.options)
                       .subscribe(list => {
                         this.data = list;
-                        this.children.forEach((child) => {
-                            child.relativePath = this.options.relativePath;
-                            child.list = this.data.list;
-                        });
                       });
    }
 

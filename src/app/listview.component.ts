@@ -28,10 +28,10 @@ export class ListView extends Base {
       {
          this.onNavigate.emit(item);
       }
-      let changeEvent = new CustomEvent("NAVIGATE", {
-         detail: item,
-         bubbles: true
-      });
-      this.el.nativeElement.dispatchEvent(changeEvent);
+      // let changeEvent = new CustomEvent("NAVIGATE", {
+      //    detail: item,
+      //    bubbles: true
+      // });
+      // this.el.nativeElement.dispatchEvent(changeEvent);
    }
 }
