@@ -1,4 +1,4 @@
-import { Component, Directive, QueryList, ViewChild, ElementRef, ContentChildren, AfterContentInit } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { NodeService } from "./node.service";
 import { Base } from "./base.component";
 
@@ -11,14 +11,10 @@ import { Base } from "./base.component";
   styleUrls: [],
   providers: [NodeService]
 })
-export class List implements AfterContentInit {
+export class List {
 
    data:any;
    options:any;
-
-   @ViewChild('list') el: ElementRef;
-
-   @ContentChildren(Base) children: QueryList<Base>;
 
    constructor(private nodeService: NodeService) {
       this.data = {
@@ -36,25 +32,8 @@ export class List implements AfterContentInit {
       };
    }
 
-   ngAfterContentInit() {
-      console.log("Moo", this.children);
-      this.children.forEach((child) => {
-        console.log("Woof", child);
-        child.relativePath = this.options.relativePath;
-        child.list = this.data.list;
-    });
-   }
-
    ngOnInit() { 
       this.getData(); 
-
-      // this.el.nativeElement.addEventListener("NAVIGATE", (event) => {
-      //   console.log("Clicked", event);
-      //   if (event && event.detail)
-      //   {
-      //     this.navigate(event.detail);
-      //   }
-      // });
    }
 
    getData() {

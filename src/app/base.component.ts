@@ -10,5 +10,4 @@ export class Base {
 
     @Input() relativePath: String;
     @Input() list:any;
-
 }
