@@ -8,6 +8,5 @@ import { Component, Input } from '@angular/core';
 @Component({})
 export class Base {
 
-    @Input() relativePath: String;
-    @Input() list:any;
+    
 }

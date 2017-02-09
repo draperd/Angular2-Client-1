@@ -16,6 +16,13 @@ import { Toolbar } from "./toolbar.component";
 import { Breadcrumb } from "./breadcrumb.component";
 import { Base } from "./base.component";
 
+import { TableView } from "./views/tableview.component";
+import { TableCell } from "./views/tablecell.component";
+
+import { Layout } from "./layouts/layout.component";
+
+import { MdlUpgrade } from "./mdl/upgrade.directive";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +31,11 @@ import { Base } from "./base.component";
     List,
     ListView,
     Toolbar,
-    Breadcrumb
+    Breadcrumb,
+    TableView,
+    TableCell,
+    Layout,
+    MdlUpgrade
   ],
   imports: [
     BrowserModule,

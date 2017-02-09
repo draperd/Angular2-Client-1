@@ -1,10 +1,18 @@
-<h1>
-  {{title}}
-</h1>
-<list #parentList (onNavigate)="navigate($event)">
-  <breadcrumb [relativePath]="parentList.options.relativePath" (onRelativePath)="parentList.setRelativePath($event)"></breadcrumb>
-   <!--<breadcrumb [relativePath]="options.relativePath" (onRelativePath)="setRelativePath($event)"></breadcrumb>-->
-   <!--<toolbar [list]="data.list" (onBack)="pageBack($event)" (onForward)="pageForward($event)"></toolbar> -->
-   <!--<listview [list]="data.list" (onNavigate)="navigate($event)"></listview>-->
-   <listview [list]="parentList.data.list" (onNavigate)="parentList.navigate($event)"></listview>
-</list>
+
+<layout>
+  <list #parentList (onNavigate)="navigate($event)">
+      <breadcrumb [relativePath]="parentList.options.relativePath" (onRelativePath)="parentList.setRelativePath($event)"></breadcrumb>
+      <!--<toolbar [list]="data.list" (onBack)="pageBack($event)" (onForward)="pageForward($event)"></toolbar> -->
+      <listview [list]="parentList.data.list" (onNavigate)="parentList.navigate($event)"></listview>
+
+      <table-view [list]="parentList.data.list">
+
+
+          <template let-item="$implicit">
+            <tr>
+              <table-cell [item]="item"></table-cell>
+            </tr>
+          </template>
+      </table-view>
+  </list>
+</layout>
