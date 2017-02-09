@@ -1,7 +1,7 @@
 <table mdl class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
     <thead>
         <tr>
-            <th class="mdl-data-table__cell--non-numeric">Name</th>
+            <ng-content select=[head]></ng-content>
         </tr>
     </thead>
     <tbody>
@@ -9,6 +9,7 @@
     </tbody>
     <tfoot>
         <tr>
+            <ng-content select=[foot]></ng-content>
         </tr>
     </tfoot>
 </table>

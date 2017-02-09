@@ -10,14 +10,19 @@
       
       <listview [list]="parentList.data.list" (onNavigate)="parentList.navigate($event)"></listview>
 
-      <table-view [list]="parentList.data.list">
-
-
+      <mdl-table-view [list]="parentList.data.list">
+          <mdl-table-heading head>ID</mdl-table-heading>
+          <mdl-table-heading head>Name</mdl-table-heading>
+          
           <template let-item="$implicit">
             <tr>
-              <table-cell [item]="item"></table-cell>
+              <mdl-table-cell [item]="item"></mdl-table-cell>
+              <mdl-table-cell [item]="item"></mdl-table-cell>
             </tr>
           </template>
-      </table-view>
+
+
+
+      </mdl-table-view>
     </list>
 </mdl-layout>

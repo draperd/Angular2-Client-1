@@ -1,9 +1,5 @@
 import { Component, Directive } from '@angular/core';
-import { NodeService } from "./node.service";
-import { Base } from "./base.component";
-
-
-
+import { NodeService } from "../node.service";
 
 @Component({
   selector: 'list',

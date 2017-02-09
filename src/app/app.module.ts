@@ -10,14 +10,15 @@ import { LoginComponent } from './login.component';
 import { UserService } from './user.service';
 import { routes } from './app.routes';
 import { LoggedInGuard } from './logged-in.guard';
-import { List } from './list.component';
-import { ListView } from "./listview.component";
+import { List } from './containers/list.component';
+import { ListView } from "./views/listview.component";
 import { Toolbar } from "./toolbar.component";
 import { Breadcrumb } from "./breadcrumb.component";
 import { Base } from "./base.component";
 
-import { TableView } from "./views/tableview.component";
-import { TableCell } from "./views/tablecell.component";
+import { TableView } from "./mdl/views/tableview.component";
+import { TableCell } from "./mdl/views/tablecell.component";
+import { TableHeading } from "./mdl/views/tableheading.component";
 
 import { Layout } from "./mdl/layouts/layout.component";
 
@@ -36,6 +37,7 @@ import { LogoutButton} from "./mdl/buttons/logout.component";
     Breadcrumb,
     TableView,
     TableCell,
+    TableHeading,
     Layout,
     LogoutButton,
     MdlUpgrade
