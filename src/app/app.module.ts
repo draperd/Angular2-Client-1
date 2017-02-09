@@ -19,9 +19,11 @@ import { Base } from "./base.component";
 import { TableView } from "./views/tableview.component";
 import { TableCell } from "./views/tablecell.component";
 
-import { Layout } from "./layouts/layout.component";
+import { Layout } from "./mdl/layouts/layout.component";
 
 import { MdlUpgrade } from "./mdl/upgrade.directive";
+
+import { LogoutButton} from "./mdl/buttons/logout.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { MdlUpgrade } from "./mdl/upgrade.directive";
     TableView,
     TableCell,
     Layout,
+    LogoutButton,
     MdlUpgrade
   ],
   imports: [

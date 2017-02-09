@@ -1,8 +1,13 @@
+<mdl-layout [headerTitle]="'My App'" [drawerTitle]="'Links'">
+  
+  <mdl-logout-button header-buttons></mdl-logout-button>
+  
+  <a drawer-navigation class="mdl-navigation__link" href="/nodes">Nodes</a>
 
-<layout>
-  <list #parentList (onNavigate)="navigate($event)">
+    <list  #parentList main-content (onNavigate)="navigate($event)">
       <breadcrumb [relativePath]="parentList.options.relativePath" (onRelativePath)="parentList.setRelativePath($event)"></breadcrumb>
       <!--<toolbar [list]="data.list" (onBack)="pageBack($event)" (onForward)="pageForward($event)"></toolbar> -->
+      
       <listview [list]="parentList.data.list" (onNavigate)="parentList.navigate($event)"></listview>
 
       <table-view [list]="parentList.data.list">
@@ -14,5 +19,5 @@
             </tr>
           </template>
       </table-view>
-  </list>
-</layout>
+    </list>
+</mdl-layout>
